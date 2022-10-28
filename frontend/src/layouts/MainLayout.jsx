@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+
 const MainLayout = ({ children }) => {
   return (
     <>
       <header>
+      
         <nav className="navbar bg-light">
           <div className="container">
             {/* <div> */}
