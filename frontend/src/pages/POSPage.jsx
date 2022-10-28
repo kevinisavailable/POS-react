@@ -26,8 +26,10 @@ const POSPage = () => {
   },[])
   
   const AddProduct = async(product)=>{
-    let findProductInCart =  cart.find(i=>{
-      return i.id === product.id
+    // console.log(product)
+    let findProductInCart = await cart.find(item=>{
+      // console.log(i)
+       return item.id === product.id
     })
     if(findProductInCart){
       let newCart = []
@@ -41,7 +43,7 @@ const POSPage = () => {
               totalAmount: cartItem.price * (cartItem.quantity + 1)
 
             }
-            newCart.push(newItem)
+          newCart.push(newItem)
         }
         else{
           newCart.push(newItem)
@@ -57,7 +59,7 @@ const POSPage = () => {
         let addingProduct = {
           ...product , 
           "quantity" : 1,
-          "totalquantity" : product.price
+          "totalAmount" : product.price 
         }
         setCart([...cart, addingProduct])
         notify()
@@ -74,10 +76,10 @@ const POSPage = () => {
   }
 
    useEffect(() => {
-    let newTotalAmount = 0
+    var newTotalAmount = 0
     cart.forEach(icart =>{
       newTotalAmount = newTotalAmount + parseInt(icart.totalAmount)
-      console.log(newTotalAmount)
+      // console.log( typeof (icart.totalAmount))
     })
     setTotalAmpount(newTotalAmount)
   
@@ -107,9 +109,11 @@ const POSPage = () => {
           {isLoading ? 'Loading' : <div className='row shadow-md text-center d-flex'>
           {product.map((product,key)=>
           <div key={key} className='col-md-4 m-1'>
-            <div className='border' style={{cursor:"pointer"}} onClick={()=>{AddProduct(product)}}>
+            <div className='border' >
               <p>{product.name}</p>
               <img src={product.image} className = "img-fluid" alt={product.name} />
+              <p> Price : {product.price}</p>
+              <button className='btn btn-primary' onClick={()=>{AddProduct(product)}}>Add to Cart</button>
             </div>
           </div>
         )}  
@@ -132,11 +136,13 @@ const POSPage = () => {
                   <tbody>
                     { cart ? cart.map((cartProduct ,key) =>
                     <tr key={key}>
-                      <td>{cartProduct.id}</td>
+                      {console.log( typeof (cartProduct.id))  }
+                      <td>{ cartProduct.id}</td>
                       <td>{cartProduct.name}</td>
                       <td>{cartProduct.price}</td>
                       <td>{cartProduct.quantity}</td>
                       <td>{cartProduct.totalAmount}</td>
+                      {/* {console.log(cartProduct.totalAmount)} */}
                       <td>
                         <button className='btn btn-danger btn-sm' onClick={()=>removeProduct(cartProduct)} >Remove</button>  
                       </td>
