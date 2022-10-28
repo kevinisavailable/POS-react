@@ -1,0 +1,33 @@
+{
+    "products":[
+        {
+            "id":123,
+            "name":"Orange",
+            "price": 15,
+            "image":"https://galafruit.net/wp-content/uploads/galafruit_arance.jpg"
+        },
+        {
+            "id":124,
+            "name":"Apple",
+            "price": 25,
+            "image":"https://media.istockphoto.com/photos/red-apple-picture-id184276818?k=20&m=184276818&s=612x612&w=0&h=QxOcueqAUVTdiJ7DVoCu-BkNCIuwliPEgtAQhgvBA_g="
+        },{
+            "id":125,
+            "name":"Banana",
+            "price": 35,
+            "image":"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/1200px-Banana-Single.jpg"
+        },
+        {
+            "id":126,
+            "name":"Grape",
+            "price": 85,
+            "image":"https://post.healthline.com/wp-content/uploads/2022/01/grapes-732x549-thumbnail.jpg"
+        },
+        {
+            "id":127,
+            "name":"Kiwi",
+            "price": 105,
+            "image":"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Kiwi_%28Actinidia_chinensis%29_1_Luc_Viatour.jpg/800px-Kiwi_%28Actinidia_chinensis%29_1_Luc_Viatour.jpg"
+        }
+    ]
+}
